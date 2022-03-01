@@ -423,6 +423,7 @@ class AcceleratorConnector:
         if self._devices_flag in ([], 0, "0"):
             rank_zero_warn(f"You passed `devices={devices}`, switching to `cpu` accelerator")
             self._accelerator_flag = "cpu"
+            self._devices_flag = 1
 
         if self._devices_flag == "auto" and self._accelerator_flag is None:
             raise MisconfigurationException(
